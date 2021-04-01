@@ -1,0 +1,77 @@
+<div class="row">
+  <div class="col-md-8">
+    <div><button (click)="showproducts()">show products</button></div>
+    <div *ngIf="showProductsTable">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>ProductId</th>
+            <th>Amazon ProductId</th>
+            <th>Amazon Article Number</th>
+            <th>Exported Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let product of products">
+            <td>{{ product.productId }}</td>
+            <td>{{ product.amazonProduct.amazonProductId }}</td>
+            <td>{{ product.amazonProduct.articleNumber }}</td>
+            <td>
+              <button
+                (click)="updateStatusOfProduct(product)"
+                [ngClass]="
+                  product.amazonProduct.exported ? 'btn-success' : 'btn-danger'
+                "
+              >
+                {{
+                  product.amazonProduct.exported ? "Exported" : "Not Exported"
+                }}
+              </button>
+            </td>
+            <td>
+              <button (click)="deleteProduct(product)" class="btn-danger">
+                Delete
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <h2>Upload File Here</h2>
+    <input
+      style="border: 2px solid blue"
+      type="file"
+      (change)="fileUpload($event)"
+    />
+    <span *ngIf="uploaded" style="color: green">{{ uploadText }}</span>
+    <button class="btn btn-success" (click)="uploadFileToActivity()">
+      Upload File
+    </button>
+  </div>
+</div>
+
+<!-- <div>
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+            <th>ProductId</th>
+          <th>Amazon ProductId</th>
+          <th>Amazon Article Number</th>
+          <th>IsExported</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let amz of products.amazonProduct">
+          <td>{{ amz.amazonProductId }}</td>
+          <td>{{ amz.articleNumber }}</td>
+          <td>
+            <button [ngClass]="amz.exported?'btn-success':'btn-danger'">
+              {{ amz.exported ? "Exported" : "Not Exported" }}
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div> -->

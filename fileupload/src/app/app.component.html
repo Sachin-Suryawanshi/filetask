@@ -1,0 +1,52 @@
+<!-- <app-fileupload></app-fileupload> -->
+<div class="container">
+  <div class="row">
+    <!-- <div class="col-md-4">
+      <button
+        class="btn btn-primary"
+        (click)="viewAmazonProductDetails()"
+        style="margin-top: 20px"
+      >
+        View Amazon Product Details
+      </button> -->
+  </div>
+  <div class="col-md-4">
+    <a routerLink="/products" class="btn btn-warning">View Products</a>
+  </div>
+  <div class="col-md-4">
+    <!-- <h2>Upload File Here</h2>
+      <input
+        style="border: 2px solid blue"
+        type="file"
+        (change)="fileUpload($event)"
+      />
+      <span *ngIf="uploaded" style="color: green">{{ uploadText }}</span>
+      <button class="btn btn-success" (click)="uploadFileToActivity()">
+        Upload File
+      </button> -->
+    <!-- </div> -->
+  </div>
+  <!-- <div *ngIf="showData">
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Amazon ProductId</th>
+          <th>Amazon Article Number</th>
+          <th>IsExported</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let amz of amazonProducts">
+          <td>{{ amz.amazonProductId }}</td>
+          <td>{{ amz.articleNumber }}</td>
+          <td>
+            <button [ngClass]="amz.exported?'btn-success':'btn-danger'">
+              {{ amz.exported ? "Exported" : "Not Exported" }}
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div> -->
+  <div><router-outlet></router-outlet></div>
+</div>
